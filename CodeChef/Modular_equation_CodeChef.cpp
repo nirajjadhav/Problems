@@ -4,7 +4,7 @@ using namespace std;
 
 const int M = 5e5;
 
-vector<vector<int>> divs(M);
+vector<vector<int> > divs(M);
 void pre()
 {
 	for(unsigned int i=1; i<=M; i++)
