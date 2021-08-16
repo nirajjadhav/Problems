@@ -223,3 +223,101 @@ Test Case 2: Age groups 10−7 get vaccinated in a total of 4 days. On the 5-th 
 
 Test Case 3: The last 2 age groups get vaccinated on the same day.
 -------------------------------------------------------------------------
+
+
+*Javelin Qualification*
+-------------------------------------------------------------------------
+There are N players with IDs from 1 to N, who are participating in the Javelin throw competition which has two rounds. The first is the qualification round, followed by the final round. The qualification round has gotten over, and you are given the longest distance that each of the N players has thrown as A1,A2,…,AN. Now, the selection process for the final round happens in the following two steps:
+
+1) If the longest throw of a player in the qualification round is greater than or equal to the qualification mark of M cm, they qualify for the final round.
+
+2) If after step 1, less than X players have qualified for the finals, the remaining spots are filled by players who have thrown the maximum distance among the players who have not qualified yet.
+
+You are given the best throws of the N players in the qualification round A1,A2,…,AN and the integers M and X. Print the list of the players who will qualify for the finals in increasing order of their IDs.
+
+Input Format
+The first line of input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+The first line of each test case contains three space-separated integers N,M,X.
+The second line of each test case contains N space-separated integers A1,A2,…,AN.
+Output Format
+For each test case, print a single line containing K+1 space-separated integers, where K is the number of players qualified.
+First, print the integer K, then followed by a space, print K space-separated integers ID1,ID2,…,IDK where IDi denotes the players' ID who qualified for the finals.
+You have to print the IDs of the qualified players in increasing order.
+Constraints
+1≤T≤1000
+2≤X≤N≤30
+5000≤Ai≤8000
+7000≤M≤8000
+All Ai-s are distinct
+Sample Input 1 
+3
+3 8000 2
+5000 5001 5002
+3 5000 2
+7999 7998 8000
+4 6000 3
+5999 5998 6000 6001
+Sample Output 1 
+2 2 3
+3 1 2 3
+3 1 3 4
+Explanation
+Test Case 1: Since no player crosses the qualification mark, they are chosen based on the distance thrown. So player 3 who has thrown the maximum distance gets selected followed by the player 2. Now since we have got the required number of players, player 1 isn't selected.
+
+Test Case 2: Since all the players cross the qualification mark, they all are selected.
+
+Test Case 3: The player 3 and player 4 cross the qualification mark. So for the third and final spot in the final, the player 1 is selected since he has the maximum distance thrown amongst the remaining two players.
+----------------------------------------------------------------------------------------------
+
+
+*Chef and Bulb Invention*
+----------------------------------------------------------------------------------------------
+Chef is trying to invent the light bulb that can run at room temperature without electricity. So he has N gases numbered from 0 to N−1 that he can use and he doesn't know which one of the N gases will work but we do know it.
+
+Now Chef has worked on multiple search algorithms to optimize search. For this project, he uses a modulo-based search algorithm that he invented himself. So first he chooses an integer K and selects all indices i in increasing order such that imodK=0 and test the gases on such indices, then all indices i in increasing order such that imodK=1, and test the gases on such indices, and so on.
+
+Given N, the index of the gas p that will work, and K, find after how much time will he be able to give Chefland a new invention assuming that testing 1 gas takes 1 day.
+
+For example, consider N=5,p=2 and K=3.
+
+On the 1st day, Chef tests gas numbered 0 because 0mod3=0.
+On the 2nd day, Chef tests gas numbered 3 because 3mod3=0.
+On the 3rd day, Chef tests gas numbered 1 because 1mod3=1.
+On the 4th day, Chef tests gas numbered 4 because 4mod3=1.
+On the 5th day, Chef tests gas numbered 2 because 2mod3=2.
+So after 5 days, Chef will be able to give Chefland a new invention
+
+Input Format
+The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+The first and only line of each test case contains three space-separated integers N, p, and K.
+Output Format
+For each test case, print a single line containing one integer — after how much time Chef will be able to give Chefland a new invention assuming that testing 1 gas takes 1 day.
+
+Constraints
+1≤T≤105
+1≤N,K≤109
+0≤p<N
+Subtasks
+Subtask #1 (100 points): Original constraints
+
+Sample Input 1 
+4
+10 5 5
+10 6 5
+10 4 5
+10 8 5
+Sample Output 1 
+2
+4
+9
+8
+Explanation
+Test case 1: On the day 1 Chef will test gas numbered 0 and on the day 2 Chef will test gas numbered 5.
+
+Test case 2: On the day 1 Chef will test gas numbered 0, on the day 2 Chef will test gas numbered 5, on the day 3 Chef will test gas numbered 1, and on the day 4 Chef will test gas numbered 6.
+
+Test case 3: On the day 1 Chef will test gas numbered 0, on the day 2 Chef will test gas numbered 5, on the day 3 Chef will test gas numbered 1, on the day 4 Chef will test gas numbered 6, on the day 5 Chef will test gas numbered 2, on the day 6 Chef will test gas numbered 7, on the day 7 Chef will test gas numbered 3, on the day 8 Chef will test gas numbered 8, and on the day 9 Chef will test gas numbered 4.
+
+Test case 4: On the day 1 Chef will test gas numbered 0, on the day 2 Chef will test gas numbered 5, on the day 3 Chef will test gas numbered 1, on the day 4 Chef will test gas numbered 6, on the day 5 Chef will test gas numbered 2, on the day 6 Chef will test gas numbered 7, on the day 7 Chef will test gas numbered 3, and on the day 8 Chef will test gas numbered 8.
+----------------------------------------------------------------------------------------------
+
