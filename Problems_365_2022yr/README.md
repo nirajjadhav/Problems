@@ -527,3 +527,202 @@ s consists of English letters, digits, symbols and spaces.
 
 Tag: Medium
 [Problem link](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+
+
+># `Number of Islands`
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+ 
+
+Example 1:
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+Example 2:
+
+Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+ 
+
+Constraints:
+
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 300
+grid[i][j] is '0' or '1'.
+
+Tag: Medium
+[Problem link](https://leetcode.com/problems/number-of-islands/)
+
+
+
+
+># `Distinct Palindromes`
+Given integers NN and XX, generate a palindrome of length NN consisting of lowercase English alphabets such that the number of distinct characters in the palindrome is exactly XX.
+If it is impossible to do so, print -1−1 instead.
+
+Input Format
+First line will contain TT, number of test cases. Then the test cases follow.
+Each test case contains of a single line of input, two integers N, XN,X, as mentioned in the statement.
+Output Format
+For each test case, output in a single line, a palindrome of length NN consisting of lowercase English alphabet such that the number of distinct characters in the palindrome is XX. If it is not possible to do so, print -1−1 instead.
+
+Constraints
+1 \leq T \leq 10^41≤T≤10 
+4
+ 
+1 \leq N \leq 10^51≤N≤10 
+5
+ 
+1 \leq X \leq min(N, 26)1≤X≤min(N,26)
+Sum of NN over all test cases does not exceed 3\cdot 10^53⋅10 
+5
+ .
+Sample 1:
+Input
+
+4
+1 1
+2 1
+3 3
+4 2
+Output
+z
+aa
+-1
+xyyx
+Explanation:
+Test case 11: A possible palindrome of length 11 having 11 distinct character is z.
+
+Test case 22: A possible palindrome of length 22 having 11 distinct character is aa.
+
+Test case 33: It can be proven that there exists no possible palindrome of length 33 having 33 distinct characters.
+
+Test case 44: The palindrome xyyx has length 44 and contains 22 distinct characters namely x and y.
+
+Tag: Medium
+[Problem link](https://www.codechef.com/submit-v2/DISPAL?tab=statement)
+
+
+># `DNA Storage`
+
+For encoding an even-length binary string into a sequence of A, T, C, and G, we iterate from left to right and replace the characters as follows:
+
+00 is replaced with A
+01 is replaced with T
+10 is replaced with C
+11 is replaced with G
+Given a binary string SS of length NN (NN is even), find the encoded sequence.
+
+Input Format
+First line will contain TT, number of test cases. Then the test cases follow.
+Each test case contains two lines of input.
+First line contains a single integer NN, the length of the sequence.
+Second line contains binary string SS of length NN.
+Output Format
+For each test case, output in a single line the encoded sequence.
+
+Note: Output is case-sensitive.
+
+Constraints
+1 \leq T \leq 1001≤T≤100
+2 \leq N \leq 10^32≤N≤10 
+3
+ 
+NN is even.
+Sum of NN over all test cases is at most 10^310 
+3
+ .
+SS contains only characters 0 and 1.
+Sample 1:
+Input
+
+4
+2
+00
+4
+0011
+6
+101010
+4
+1001
+Output
+A
+AG
+CCC
+CT
+Explanation:
+Test case 11: Based on the rules 00 is replaced with A.
+
+Test case 22: Based on the rules 00 is replaced with A. Similarly, 11 is replaced with G. Thus, the encoded sequence is AG.
+
+Test case 33: The first two characters are 10 which is encoded as C. Similarly, the next two characters 10 are encoded as C and the last two characters 10 are encoded as C. Thus, the encoded string is CCC.
+
+Test case 44: The first two characters are 10 which is encoded as C. Similarly, the next two characters 01 are encoded as T. Thus, the encoded string is CT.
+
+
+
+Tag: Easy
+[Problem link](https://www.codechef.com/submit-v2/DNASTORAGE)
+
+
+
+># `Joining Date`
+
+N candidates (numbered from 11 to NN) join Chef's firm. The first 55 candidates join on the first day, and then, on every subsequent day, the next 55 candidates join in.
+For example, if there are 1212 candidates, candidates numbered 11 to 55 will join on day 11, candidates numbered 66 to 1010 on day 22 and the remaining 22 candidates will join on day 33.
+
+Candidate numbered KK decided to turn down his offer and thus, Chef adjusts the position by shifting up all the higher numbered candidates. This leads to a change in the joining day of some of the candidates.
+
+Help Chef determine the number of candidates who will join on a different day than expected.
+
+Input Format
+First line will contain TT, number of test cases. Then the test cases follow.
+Each test case contains of a single line of input, two space-separated integers NN and KK denoting the number of candidates and the candidate who turned down the offer.
+Output Format
+For each test case, output a single integer denoting the number of candidates whose joining day will be changed.
+
+Constraints
+1 \leq T \leq 10001≤T≤1000
+2 \leq N \leq 10002≤N≤1000
+1 \leq K \leq N1≤K≤N
+Sample 1:
+Input
+Output
+4
+7 3
+6 6
+2 1
+14 2
+1
+0
+0
+2
+Explanation:
+Test case 11: The original joining day of each candidate is given as [1, 1, 1, 1, 1, 2, 2][1,1,1,1,1,2,2] but as candidate 33 turns down his offer, the new joining days are now [1, 1, NA, 1, 1, 1, 2][1,1,NA,1,1,1,2]. Candidate numbered 66 is the only one to have his joining day changed.
+
+Test case 22: The original joining day of each candidate is given as [1, 1, 1, 1, 1, 2][1,1,1,1,1,2] but as candidate 66 turns down his offer, the new joining days are now [1, 1, 1, 1, 1, NA][1,1,1,1,1,NA]. No candidate got his joining day changed.
+
+Test case 33: The original joining day of each candidate is given as [1, 1][1,1] but as candidate 11 turns down his offer, the new joining days are now [NA, 1][NA,1]. No candidate got his joining day changed.
+
+Test case 44: The original joining day of each candidate is given as [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3][1,1,1,1,1,2,2,2,2,2,3,3,3,3] but as candidate 22 turns down his offer, the new joining days are now [1, NA, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3][1,NA,1,1,1,1,2,2,2,2,2,3,3,3]. Candidate numbered 66 and 1111 are the only ones to have their joining days changed.
+
+
+
+Tag: Medium
+[Problem link](https://www.codechef.com/submit-v2/JOINING)
+
+
