@@ -726,3 +726,267 @@ Tag: Medium
 [Problem link](https://www.codechef.com/submit-v2/JOINING)
 
 
+># `Complementary Strand in a DNA `
+You are given the sequence of Nucleotides of one strand of DNA through a string S of length N. S contains the character A,T,C, and G only.
+
+Chef knows that:
+
+A is complementary to T.
+T is complementary to A.
+C is complementary to G.
+G is complementary to C.
+Using the string S, determine the sequence of the complementary strand of the DNA.
+
+Input Format
+First line will contain T, number of test cases. Then the test cases follow.
+First line of each test case contains an integer N - denoting the length of string S.
+Second line contains N characters denoting the string S.
+Output Format
+For each test case, output the string containing N characters - sequence of nucleotides of the complementary strand.
+
+Constraints
+1≤T≤100
+1≤N≤100
+S contains A, T, C, and G only
+Sample Input 1 
+4
+4
+ATCG
+4
+GTCC
+5
+AAAAA
+3
+TAC
+Sample Output 1 
+TAGC
+CAGG
+TTTTT
+ATG
+Explanation
+Test case 1: Based on the rules, the complements of A, T, C, and G are T, A, G, and C respectively. Thus, the complementary string of the given string ATCG is TAGC.
+
+Test case 2: Based on the rules, the complements of G, T, and C are C, A, and G respectively. Thus, the complementary string of the given string GTCC is CAGG.
+
+Test case 3: Based on the rules, the complement of A is T. Thus, the complementary string of the given string AAAAA is TTTTT.
+
+Test case 4: Based on the rules, the complements of T, A, and C are A, T, and G respectively. Thus, the complementary string of the given string TAC is ATG.
+
+Tag: Easy
+[Problem link](https://www.codechef.com/JUNE222D/problems/DNASTRAND)
+
+
+># `Count the ACs`
+
+There are 10 problems in a contest. You know that the score of each problem is either 1 or 100 points.
+
+Chef came to know the total score of a participant and he is wondering how many problems were actually solved by that participant.
+
+Given the total score P of the participant, determine the number of problems solved by the participant. Print −1 in case the score is invalid.
+
+Input Format
+First line will contain T, number of test cases. Then the test cases follow.
+Each test case contains of a single line containing a single integer P - denoting the number of points scored by the participant.
+Output Format
+For each testcase, output the number of problems solved by the participant or −1 if the score is invalid.
+
+Constraints
+1≤T≤1000
+0≤P≤1000
+Sample Input 1 
+5
+103
+0
+6
+142
+1000
+Sample Output 1 
+4
+0
+6
+-1
+10
+Explanation
+Test Case 1: The participant has solved 4 problems out of which 3 problems are worth 1 point each while 1 problem is worth 100 points.
+
+Test Case 2: Since participant's score is 0, he solved 0 problems.
+
+Test Case 3: The participant has solved 6 problems out of which all the problems are worth 1 point.
+
+Test Case 4: It is not possible to get a score of 142.
+
+Test Case 5: The participant solved all the 10 problems and score of all the problems is 100.
+
+Tag: Easy
+[Problem link](https://www.codechef.com/problems-old/ACS)
+
+># `Jogging`
+Alice jogs everyday to keep herself fit and active. She noticed that she burns X calories when jogging the first kilometer, and for K>1, jogging the Kth kilometer burns calories equivalent to the total number of calories burned while jogging the first K−1 kilometers.
+
+What is the total number of calories that Alice burns after jogging for N kilometers? The answer can be very large, so report it modulo 109+7 (1000000007).
+
+Input Format
+The first line of input will contain an integer T — the number of test cases. The description of T test cases follows.
+The first and only line of each test case contains two space-separated integers N and X, as described in the problem statement.
+Output Format
+For each test case, output on a new line the total number of calories that Alice burns after jogging for N kilometers, modulo 109+7.
+
+Constraints
+1≤T≤105
+1≤N≤106
+1≤X≤100
+Sample Input 1 
+3
+1 2
+2 1
+12548 1
+Sample Output 1 
+2
+2
+588809226
+Explanation
+Test case 1: Alice only jogs one kilometer, which burns 2 calories since X=2.
+
+Test case 2: Alice jogs two kilometers. The first burns X=1 calorie, and the second also burns 1 calorie since the total amount burnt before this is 1 calorie. So, the total is 1+1=2 calories burned.
+
+Tag: Easy
+[Problem link](https://www.codechef.com/problems-old/JOGGING)
+
+
+># `Make all equal using Pairs`
+Chef has an array A of length N.
+
+In one operation, Chef can choose any two distinct indices i,j (1≤i,j≤N,i≠j) and either change Ai to Aj or change Aj to Ai.
+
+Find the minimum number of operations required to make all the elements of the array equal.
+
+Input Format
+First line will contain T, number of test cases. Then the test cases follow.
+First line of each test case consists of an integer N - denoting the size of array A.
+Second line of each test case consists of N space-separated integers A1,A2,…,AN - denoting the array A.
+Output Format
+For each test case, output the minimum number of operations required to make all the elements equal.
+
+Constraints
+1≤T≤100
+2≤N≤1000
+1≤Ai≤1000
+Sample Input 1 
+4
+3
+1 2 3
+4
+5 5 5 5
+4
+2 2 1 1
+3
+1 1 2
+Sample Output 1 
+2
+0
+2
+1
+Explanation
+Test Case 1: You can make all the elements equal in 2 operations. In the first operation, you can choose indices 1,2 and convert A1 to A2. So the array becomes [2,2,3]. Now you can choose indices 1,3 and convert A3 to A1, so the final array becomes [2,2,2].
+
+Test Case 2: Since all the elements are already equal there is no need to perform any operation.
+
+Test Case 3: You can make all the elements equal in 2 operations. In the first operation, you can choose indices 1,3 and convert A1 to A3. So the array becomes [1,2,1,1]. Now you can choose indices 1,2 and convert A2 to A1, so the final array becomes [1,1,1,1].
+
+Test Case 4: You can make all the elements equal in 1 operation. You can pick indices 2,3 and convert A3 to A2 after which the array becomes [1,1,1].
+
+
+Tag: Medium
+[Problem link](https://www.codechef.com/JUNE222C/problems/PAIREQ)
+
+
+># `Reversal Sorting`
+Chef is deriving weird ways to sort his array. Currently he is trying to sort his arrays in increasing order by reversing some of his subarrays.
+
+To make it more challenging for himself, Chef decides that he can reverse only those subarrays that have sum of its elements at most X. Soon he notices that it might not be always possible to sort the array with this condition.
+
+Can you help the Chef by telling him if the given array can be sorted by reversing subarrays with sum at most X.
+
+More formally, for a given array A and an integer X, check whether the array can be sorted in increasing order by reversing some (possibly none) of the subarrays such that the sum of all elements of the subarray is at most X.
+
+Input Format
+First line will contain T, number of test cases. Then the test cases follow.
+The first line of each test case contains of two space-separated integers N and X denoting the length of the array and the maximum sum of subarrays that you can reverse.
+The second line contains N space-separated integers A1,A2,...,AN representing the initial array.
+Output Format
+For each test case, output YES if Chef can sort the array using a finite number of operations, else output NO.
+
+You may print each character of the string in uppercase or lowercase (for example, the strings YeS, yEs, yes and YES will all be treated as identical).
+
+Constraints
+1≤T≤5⋅104
+1≤N≤105
+1≤Ai≤2⋅109
+1≤X≤2⋅109
+Sum of N over all test cases does not exceeds 3⋅105.
+Sample Input 1 
+3
+4 1
+1 2 3 4
+4 1
+2 1 3 4
+5 7
+3 2 2 3 3
+Sample Output 1 
+YES
+NO
+YES
+Explanation
+Test case 1: The array is already sorted so we need not make any operations.
+
+Test case 2: There is no subarray with sum less than or equal to 1 so we cannot sort the array.
+
+Test case 3: We can reverse the subarray A[1,3] which has a sum of 3+2+2=7. Thus, the reversed subarray is [2,2,3]. The resulting array is [2,2,3,3,3]. The array is sorted in 1 operation.
+
+Tag: Medium
+[Problem link](https://www.codechef.com/JUNE222D/problems/REVSORT)
+
+
+># `Strong Elements`
+Chef has an array A of length N.
+
+An index i is called strong if we can change the gcd of the whole array just by changing the value of Ai.
+
+Determine the number of strong indices in the array.
+
+Input Format
+First line will contain T, number of test cases. Then the test cases follow.
+First line of each test case contains an integer N denoting the size of the array A.
+Second line contains N space separated integers A1,A2,…,AN - denoting the array A.
+Output Format
+For each test case, output the number of strong indices in the array.
+
+Constraints
+1≤T≤5⋅104
+2≤N≤3⋅105
+1≤Ai≤109
+Sum of N over all test cases do not exceed 3⋅105.
+Sample Input 1 
+3
+3
+5 10 20
+4
+3 5 7 11
+4
+2 2 2 2
+Sample Output 1 
+3
+0
+4
+Explanation
+Test Case 1: All the indices are strong.
+
+For index 1 you can change the element to 10 which changes the gcd of the array to 10.
+For index 2 you can change the element to 12 which changes the gcd of the array to 1.
+For index 3 you can change the element to 12 which changes the gcd of the array to 1.
+Test Case 2: No index is strong. If you change any single element, gcd still remains the same.
+
+Test Case 3: All the indices are strong. You can change any element to 3. This changes the gcd of the array to 1.
+
+Tag: Hard
+[Problem link](https://www.codechef.com/problems-old/STRNG)

@@ -9,6 +9,20 @@ using namespace std;
 
 void solve()
 {
+    int N; cin >> N;
+
+    int array[N];
+    int visited[1001] = {0};
+    for (int i = 0; i < N; i++)
+    {
+        cin >> array[i];
+        visited[array[i]]++;
+    }
+
+    int max_repeat_ele  = *max_element(visited, visited+1001);
+
+    cout << N - max_repeat_ele << endl;
+
 
 }
 

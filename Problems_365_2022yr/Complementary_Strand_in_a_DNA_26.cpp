@@ -9,7 +9,17 @@ using namespace std;
 
 void solve()
 {
+    ll N; cin >> N;
+    string str; cin >> str;
 
+    map<char, char> m{{'A','T'}, {'T','A'}, {'C','G'}, {'G','C'}};
+
+    for(int i = 0; i < str.size(); i++)
+    {
+        cout << m[str[i]];
+    }
+
+    cout << "\n";
 }
 
 
