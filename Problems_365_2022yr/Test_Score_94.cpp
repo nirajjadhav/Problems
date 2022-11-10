@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -70,9 +70,22 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve(ll n, ll x, ll y) 
 {
-    return 0;
+    if(y % x != 0)
+    {
+        cout << "No" << line;
+        return;
+    }
+
+    if(y % x <= n)
+    {
+        cout << "Yes" << line;
+    }
+    else
+    {
+        cout << "No" << line;
+    }
 }
 
 
@@ -83,7 +96,9 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        ll n, x, y; cin >> n >> x >> y;
+
+        solve(n, x, y);
     }
 
     return 0;

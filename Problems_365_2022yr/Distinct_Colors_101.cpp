@@ -70,9 +70,13 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+int solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    vector<int> arr(n);
+    forin(arr, n);
+
+    return *max_element(arr.begin(), arr.end());
 }
 
 

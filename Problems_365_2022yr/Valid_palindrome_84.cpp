@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -70,21 +70,54 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
-{
-    return 0;
-}
+bool isPalindrome(string s) {
+    //cout << "solve " << s.size() << endl;
+    int l = 0, h = s.size()-1;
+     while(l < h)
+     {
+        if(!iswalnum(s[l]))
+        {
+            l++;
+            continue;
+        }
+        else if(!iswalnum(s[h]))
+        {
+            h--;
+            continue;
+        }
+        //cout << s[l] <<  " " << s[h] << endl;
+        if(tolower(s[l]) != tolower(s[h]))
+        {
+            return false;
+        }
+        l++;
+        h--;
+     }   
 
+     return true;
+    }
 
 int main()
 {
-    fastio;
-    ll t; cin >> t;
+    //fastio;
+    //ll t; cin >> t;
+    
 
-    for(int i=1; i<=t; ++i)
+    /*for(auto x: strs)
     {
-        cout << solve() << line;
+        cout << x << " ";
     }
+    cout << "\n";*/
+
+    //for(int i=1; i<=t; ++i)
+    //{
+        string str; 
+        //cout << "Please enter your name: \n";
+        getline(cin, str);
+        //cout << str.size() << endl;
+
+        cout << isPalindrome(str) << line;
+    //}
 
     return 0;
 

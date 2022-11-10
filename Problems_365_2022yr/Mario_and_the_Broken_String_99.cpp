@@ -70,9 +70,22 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    string str; cin >> str;
+
+    string s1 = str.substr(0, n/2);
+    string s2 = str.substr(n/2);
+
+    if(s1.compare(s2) == 0)
+    {
+        yes;
+    }
+    else
+    {
+        no;
+    }
 }
 
 
@@ -83,7 +96,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        solve();
     }
 
     return 0;

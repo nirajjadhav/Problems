@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -70,9 +70,53 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve(vector<string>& strs) 
 {
-    return 0;
+    //cout << "solve" << endl;
+    map<map<char, int>, vector<string>> mp;
+
+    for(auto str: strs)
+    {
+        map<char, int> fmap;
+        for(int i=0; i<str.size(); i++)
+        {
+            if(fmap.find(str[i]) != fmap.end())
+                fmap[str[i]]++;
+            else
+                fmap[str[i]] = 1;
+        }
+
+        if(mp.find(fmap) != mp.end())
+        {
+            //vector<string> s = mp[fmap];
+            mp[fmap].push_back(str);
+        }
+        else
+        {
+            vector<string> s;
+            s.push_back(str);
+            mp[fmap] = s;
+        }
+        //cout << "str " << str << "mp len= " << mp.size() << endl;
+    }
+
+    vector<vector<string>> res;
+    for(auto itr= mp.begin(); itr != mp.end(); ++itr)
+    {
+        res.push_back(itr->second);
+    }
+
+    for(auto x: res)
+    {
+        for(auto s: x)
+        {
+            cout << s << " ";
+        }
+        cout << "\n";
+    }
+
+
+    
 }
 
 
@@ -80,10 +124,24 @@ int main()
 {
     fastio;
     ll t; cin >> t;
+    
+
+    /*for(auto x: strs)
+    {
+        cout << x << " ";
+    }
+    cout << "\n";*/
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        ll n; cin >> n;
+        vector<string> strs(n);
+
+        for(auto &x: strs)
+        {
+            cin >> x;
+        }
+        solve(strs);
     }
 
     return 0;

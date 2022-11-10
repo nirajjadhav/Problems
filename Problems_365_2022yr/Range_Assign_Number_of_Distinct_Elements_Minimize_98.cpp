@@ -70,9 +70,42 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    vector<ll> arr(n);
+    forin(arr, n);
+
+    if(n <= 2)
+    {
+        yes;
+    }
+    else if(arr[0] == arr[n-1] || arr[0] == arr[n-2] || arr[1] == arr[n-1])
+    {
+        yes;
+    }
+    else
+    {
+        bool f = true;
+        ll a = arr[0];
+        for(int i = 1; i <= n-3; i++)
+        {
+            if(arr[i] == a)
+            {
+                if(arr[i+1] == arr[n-1])
+                {
+                    yes;
+                    f = false;
+                    break;
+                }
+            }
+        }
+        if(f)
+        {
+            no;
+        }
+    }   
+
 }
 
 
@@ -83,7 +116,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        solve();
     }
 
     return 0;

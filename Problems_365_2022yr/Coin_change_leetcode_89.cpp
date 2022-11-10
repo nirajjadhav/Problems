@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -70,20 +70,42 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
-{
-    return 0;
-}
 
+int coinChange(vector<int>& coins, int amount) {
+    vector<int> dp(amount+1, INT_MAX);
+    dp[0] = 0;
+
+    for(int i=1; i<dp.size(); i++)
+    {
+        for(int j=0; j < coins.size(); j++)
+        {
+            if((i - coins[j]) >= 0)
+                dp[i] = min(dp[i], 1 + dp[i - coins[j]]);
+        }
+    }   
+
+    if(dp[amount] != INT_MAX)
+        return dp[amount];
+    else
+        return -1; 
+}
 
 int main()
 {
     fastio;
     ll t; cin >> t;
 
+
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        
+        ll n; cin >> n;
+        vector<int> coins(n);
+        for(auto &e: coins)
+            cin >> e;
+        ll amt; cin >> amt; 
+
+        cout << coinChange(coins, amt) << line;
     }
 
     return 0;

@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -69,21 +69,58 @@ const ll INF=1e18;
 const ll mod1=1e9+7;
 const ll mod2=998244353;
 
-
-ll solve() 
+int solve(int n, vector<int>& arr)
 {
-    return 0;
+    if(n==0)
+        return 1;
+    else if(n < 0)
+        return 0;
+
+    if(arr[n] > 0)
+        return arr[n];
+    
+    int np1 = solve(n-1, arr);
+    int np2 = solve(n-2, arr);
+    int cp = np1 + np2;
+
+    arr[n] = cp;
+    return arr[n];
 }
 
+int climbStairs1(int n) {
+    vector<int> arr(n+1, 0);
+    return solve(n, arr);  
+}
+
+int climbStairs(int n) {
+    vector<int> dp(n+1, 0);
+    dp[0] = 1;
+    for(int i=1; i<=n; i++)
+    {
+        if(i==1)
+        {
+            dp[i] = dp[i-1];
+        }
+        else
+        {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+    }
+
+    return dp[n];  
+}
 
 int main()
 {
     fastio;
     ll t; cin >> t;
 
+
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        ll n; cin >> n; 
+
+        cout << climbStairs(n) << line;
     }
 
     return 0;

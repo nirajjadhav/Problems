@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -79,12 +79,26 @@ ll solve()
 int main()
 {
     fastio;
-    ll t; cin >> t;
+    vector<int> arr{1, 5, 6, 2, 8};
+    int k = 2;
 
-    for(int i=1; i<=t; ++i)
+    sort(arr.begin(), arr.end());
+
+    if(arr.size() == 1)
     {
-        cout << solve() << line;
+        cout << 0 << line;
     }
+    else
+    {
+        int ans = arr.size()-1;
+        for(int i=0; i<arr.size(); i++)
+        {
+            int j = upper_bound(arr.begin(), arr.end(), arr[i]+k) - arr.begin() - 1;
+            ans  = min(ans, (int)(arr.size() - (j - i + 1)));
+        }
+        cout << ans << line;
+    }
+    
 
     return 0;
 

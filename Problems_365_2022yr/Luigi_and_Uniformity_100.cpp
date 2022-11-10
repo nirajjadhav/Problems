@@ -72,7 +72,37 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    vector<ll> arr(n);
+    forin(arr, n);
+
+    sort(arr.begin(), arr.end());
+
+    ll res = arr[0];
+
+    ll count = 0;
+    bool flag = true;
+    //cout << "res " << res << endl;
+    for(int i = 1; i < n; i++)
+    {
+        if(res == arr[i])
+            continue;
+        
+        if(arr[i] % res == 0)
+        {
+            count++;
+        }
+        else
+        {
+            flag = false;
+            break;
+        }
+    }
+
+    if(flag == true)
+        return count;
+    else   
+        return n;
 }
 
 

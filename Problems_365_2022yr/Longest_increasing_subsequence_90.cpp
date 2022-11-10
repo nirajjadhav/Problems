@@ -18,8 +18,8 @@ typedef vector<vector<ll>> vvl;
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
 // Some print
-#define no cout<<"NO"<<"\n";
-#define yes cout<<"YES"<<"\n";
+#define no cout<<"NO"<<endl;
+#define yes cout<<"YES"<<endl;
 // sort
 #define all(V) (V).begin(),(V).end()
 #define srt(V) sort(all(V))
@@ -69,21 +69,57 @@ const ll INF=1e18;
 const ll mod1=1e9+7;
 const ll mod2=998244353;
 
-
-ll solve() 
+int ceilIndex(vector<int>& nums, int l, int r, int x)
 {
-    return 0;
+    while(r > l)
+    {
+        int m = (l + r)/2;
+        if(nums[m] >= x)
+            r = m;
+        else
+            l = m+1;
+    }
+    return r;
 }
 
+
+int lengthOfLIS(vector<int>& nums) {
+        vector<int> tail;
+        int len = 1;
+        tail.push_back(nums[0]);
+
+        for(int i=1; i<nums.size(); i++)
+        {
+            if(nums[i] > tail[len-1])
+            {
+                tail.push_back(nums[i]);
+                len++;
+            }
+            else
+            {
+                int c = ceilIndex(tail, 0, len-1, nums[i]);
+                tail[c] = nums[i];
+            }
+            
+        }
+
+        return len;
+}
 
 int main()
 {
     fastio;
     ll t; cin >> t;
 
+
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << line;
+        ll n; cin >> n;
+        vector<int> arr(n);
+        for(auto &e: arr)
+            cin >> e;
+
+        cout << lengthOfLIS(arr) << line;
     }
 
     return 0;
