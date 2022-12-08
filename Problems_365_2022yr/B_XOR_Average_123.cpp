@@ -99,9 +99,29 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n, i;
+    
+
+    cin>>n;
+    
+    if((n%2)==1){
+        for(i=1; i<=n; i++)
+        {
+            cout<<"1 ";
+        }
+    }else{
+        cout<<"1 3 ";
+        
+        for(i=1; i<=n-2; i++)
+        {
+            cout<<"2 ";
+        }
+    }
+    cout<<"\n";
+
+
 }
 
 
@@ -112,7 +132,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

@@ -13,7 +13,7 @@ typedef vector<vector<ll>> vvl;
 #define ff first
 #define ss second
 #define mp make_pair
-#define endl "\n";
+#define line "\n";
 #define pb push_back
 // loops
 #define forin(arr,n) for(ll i=0;i<n;i++) cin>>arr[i];
@@ -44,7 +44,6 @@ ll power(ll x,ll y,ll mod)
     }
     return res;
 }
-//String to Number
 ll str_to_num(string s)
 {
     stringstream pk(s);
@@ -52,37 +51,9 @@ ll str_to_num(string s)
     pk>>num;
     return num;
 }
-//Number to string
 string num_to_str(ll num)
 {
     return to_string(num);
-}
-
-//Prime O(sqrt(n))
-bool isPrime(int n)
-{
-    // Corner cases
-    if (n <= 1)
-        return false;
-    if (n <= 3)
-        return true;
- 
-    // This is checked so that we can skip
-    // middle five numbers in below loop
-    if (n % 2 == 0 || n % 3 == 0)
-        return false;
- 
-    // Using concept of prime number
-    // can be represented in form of
-    // (6*n + 1) or(6*n - 1) hence
-    // we have to go for every multiple of 6 and
-    // prime number would always be 1 less or 1 more than
-    // the multiple of 6.
-    for (int i = 5; i * i <= n; i = i + 6)
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
- 
-    return true;
 }
 
 /* ascii value
@@ -99,9 +70,55 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    vl arr(n);
+    forin(arr, n);
+    ll c=0;
+
+    for(auto e: arr)
+    {
+        if(e%2 != 0)
+        {
+            c++;
+        }
+    }
+    //cout << "c = " << c << endl;
+
+    if(n == 2)
+    {
+        if(c == 2)
+        {
+            cout << "YES" << "\n";
+            return;
+        }
+        else
+        {
+            cout << "NO" << "\n";
+            return;
+        }
+
+    }
+    else
+    {
+        if(c == 0)
+        {
+           cout << "NO" << "\n";
+            return; 
+        }
+        
+        if(c%2 != 0)
+        {
+            cout << "NO" << "\n";
+            return;
+        }
+        else
+        {
+            cout << "YES" << "\n";
+            return;
+        }
+    }
 }
 
 
@@ -112,7 +129,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

@@ -99,9 +99,43 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    string str; cin >> str;
+
+    string res = "";
+
+    ll l = 0, h = str.size()-1;
+
+    while(l <= h)
+    {
+        if(str[l] == '0')
+        {
+            res = '0' + res;
+        }
+        else
+        {
+            res = res + '1';
+        }
+        l++;
+
+        if(l > h)
+            break;
+        
+        if(str[h] == '0')
+        {
+            res = res + '0';
+        }
+        else
+        {
+            res = '1' + res;
+        }
+        h--;
+
+    } 
+
+    cout << res << endl;
 }
 
 
@@ -112,7 +146,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

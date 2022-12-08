@@ -98,10 +98,78 @@ const ll INF=1e18;
 const ll mod1=1e9+7;
 const ll mod2=998244353;
 
+void printSubsequences(vl arr, ll index,
+                       vector<ll> &subarr,ll n, ll k, ll &count, ll &sum)
+{
+    // Print the subsequence when reach
+    // the leaf of recursion tree
+
+    if(index == n)
+    {
+        //cout << "sum = " << sum << endl;
+        if(subarr.size() == 2)
+        {
+            if(sum % k != 0)
+            {
+                count = (count + 1) % mod1;
+                return;
+            }
+            else
+            {
+                return;
+            }
+        }
+        count = (count + 1) % mod1;
+        return;
+    }
+    else if(subarr.size() == 2)
+    {
+        if(sum % k == 0)
+        {
+            return;
+        }
+    }
+
+
+
+//pick the current index into the subsequence.
+    bool flag = false;
+    if(subarr.size() >= 2)
+    {
+        for(auto e: subarr)
+        {
+            if((e+arr[index]) % k == 0)
+            {flag = true;}
+        }
+    }
+    
+    subarr.push_back(arr[index]);
+    sum = sum + arr[index];
+    
+    if(flag == false)
+    {
+        printSubsequences(arr, index + 1, subarr, n, k,  count, sum);
+    }
+
+    sum = sum - arr[index];
+    subarr.pop_back();
+    
+    //not picking the element into the subsequence.
+    printSubsequences(arr, index + 1, subarr, n, k,  count, sum);
+    
+}
 
 ll solve() 
 {
-    return 0;
+    ll count = 0, sum = 0;
+    ll n, k; cin >> n >> k;
+    vl arr(n);
+    forin(arr, n);
+    vl vec;
+
+    printSubsequences(arr, 0, vec, n, k, count, sum);
+
+    return count;
 }
 
 

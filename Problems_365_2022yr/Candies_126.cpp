@@ -99,9 +99,30 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; cin >> n;
+    vl arr(2*n);
+    forin(arr, 2*n);
+
+    unordered_map<int, int> mp;
+
+    for(auto e: arr)
+    {
+        mp[e]++;
+    }
+
+    for(auto e: mp)
+    {
+        //cout << e.ss << endl;
+        if(e.ss > 2)
+        {
+            no;
+            return;
+        }
+    }
+
+    yes;
 }
 
 
@@ -112,7 +133,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

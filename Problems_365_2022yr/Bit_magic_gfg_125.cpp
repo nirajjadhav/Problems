@@ -99,21 +99,35 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
-{
-    return 0;
+int bitMagic(int n, vector<int> &arr) {
+    // code here
+    int l = 0, h = n-1;
+    int c = 0;
+    while(l < h)
+    {
+        if(arr[l] != arr[h])
+        {
+            c++;
+        }
+        l++;
+        h--;
+    }
+    if(c<=1)
+        return c;
+    else
+        return (c/2);
+    
 }
 
 
 int main()
 {
     fastio;
-    ll t; cin >> t;
+    int n = 3;
+    vector<int> arr = {1,0,1};
 
-    for(int i=1; i<=t; ++i)
-    {
-        cout << solve() << endl;
-    }
+    cout << bitMagic(n, arr) <<  endl;
+    
 
     return 0;
 

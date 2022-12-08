@@ -99,9 +99,55 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n, k; cin >> n >> k;
+    vl arr(n);
+    vl index_array;
+    for(ll i=0; i<n; i++)
+    {
+        cin >> arr[i];
+        if(arr[i] == k)
+        {
+            index_array.push_back(i);
+        }
+    }
+
+    if(index_array.empty())
+    {
+        no;
+        return;
+    }
+    ll mid =  n/2;
+    if(n%2 == 0){
+        mid--;
+    }
+
+
+    if(arr[mid] == k)
+    {
+        yes;
+        return;
+    }
+
+    if(index_array.size() == 1)
+    {
+        if(index_array[0] == (n-1))
+        {
+            no;
+            return;
+        } 
+        else
+        {
+            yes;
+            return;
+        }
+    }
+    else
+    {
+        yes;
+        return;
+    }
 }
 
 
@@ -112,7 +158,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

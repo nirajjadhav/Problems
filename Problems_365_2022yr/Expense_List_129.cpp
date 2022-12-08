@@ -101,7 +101,10 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n, x; cin >> n >> x;
+
+    return (1 << (x-n));
+
 }
 
 

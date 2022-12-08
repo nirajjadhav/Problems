@@ -101,7 +101,21 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll a, c; cin >> a >> c;
+
+    if(a == c)
+    {
+        return a;
+    }
+
+    if((c-a-1)%2 == 0)
+    {
+        return -1;
+    }
+    else
+    {
+        return ((a+c) /2);
+    }
 }
 
 

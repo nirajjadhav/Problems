@@ -99,9 +99,15 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    string str; cin >> str;
+    string rev(str);
+
+    reverse(rev.begin(), rev.end());
+
+    cout << str + rev << endl;
+
 }
 
 
@@ -112,7 +118,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

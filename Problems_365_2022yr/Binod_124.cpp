@@ -99,9 +99,46 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n, q; cin >> n >> q;
+    vl arr(n);
+    forin(arr, n);
+
+    for(int i=0; i<q; i++){
+        ll k, l1, r1, l2, r2; cin >> k >> l1 >> r1 >> l2 >> r2;
+        l1--;
+        r1--;
+        l2--;
+        r2--;
+
+        ll group1_set = 0, group2_set = 0, group1_notset = 0, group2_notset = 0;
+
+        for(ll i = l1; i<= r1; i++){
+            if((arr[i] >> k) & 1)
+            {
+                group1_set++;
+            }
+            else
+            {
+                group1_notset++;
+            }
+        }
+
+        for(ll i = l2; i<= r2; i++){
+            if((arr[i] >> k) & 1)
+            {
+                group2_set++;
+            }
+            else
+            {
+                group2_notset++;
+            }
+        }
+
+        cout << (group1_set * group2_notset) + (group1_notset * group2_set) << endl;
+
+    }
 }
 
 
@@ -112,7 +149,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;
