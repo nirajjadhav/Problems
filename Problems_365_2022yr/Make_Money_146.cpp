@@ -99,6 +99,7 @@ ll lcm(ll a, ll b)
     return (a / gcd(a, b)) * b;
 }
 
+
 /* ascii value
 A=65,Z=90,a=97,z=122
 */
@@ -115,7 +116,31 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n, x, c; cin >> n >> x >> c;
+    vl arr(n);
+    ll sum = 0;
+
+    for(int i=0; i<n; i++)
+    {
+        cin >> arr[i];
+        sum += arr[i];
+    }
+
+    srt(arr);
+
+    for(int i=0; i<n; i++)
+    {
+        if((x-arr[i]) > c)
+        {
+            sum += ((x-arr[i])-c);
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return sum;
 }
 
 

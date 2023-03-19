@@ -113,9 +113,39 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll a, b, c; cin >> a >> b >> c ;
+    ll cnt_0 = 0, cnt_1 = 0;
+    if(a == 0) cnt_0++;
+    if(b == 0) cnt_0++;
+    if(c == 0) cnt_0++;
+    if(a > 0) cnt_1++;
+    if(b > 0) cnt_1++;
+    if(c > 0) cnt_1++;
+    if((a > 0 && b > 0 && c > 0) || (a < 0 && b < 0 && c < 0))
+    {
+        cout << "NO" << endl;
+    }
+    else if(cnt_0 >= 2)
+    {
+        cout << "NO" << endl;
+    }
+    else if(cnt_0 == 1)
+    {
+        if(cnt_1 == 0 || cnt_1 == 2)
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+        cout << "YES" << endl;
+        }
+    }
+    else
+    {
+        cout << "YES" << endl;
+    }
 }
 
 
@@ -126,7 +156,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

@@ -115,7 +115,20 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n; cin >> n;
+
+    if(n <= 70)
+    {
+        return 0;
+    }
+    else if(n > 70 && n <=100)
+    {
+        return 500;
+    }
+    else
+    {
+        return 2000;
+    }
 }
 
 

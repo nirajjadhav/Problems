@@ -112,23 +112,65 @@ const ll INF=1e18;
 const ll mod1=1e9+7;
 const ll mod2=998244353;
 
-
-ll solve() 
+typedef struct TreeNode 
 {
-    return 0;
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+}TreeNode;
+
+int maxPath(TreeNode* root, int &maxi)
+{
+    if(root == NULL)
+        return 0;
+    
+    int left = max(0, maxPath(root->left, maxi));
+    int right = max(0, maxPath(root->right, maxi));
+
+    maxi = max(maxi, left+right+root->val);
+
+    return max(left, right) + root->val;
+
+}
+
+int maxPathSum(TreeNode* root)
+{
+    int maxi = INT_MIN;
+
+    maxPath(root, maxi);
+
+    return maxi;
+        
 }
 
 
 int main()
 {
-    fastio;
-    ll t; cin >> t;
 
-    for(int i=1; i<=t; ++i)
-    {
-        cout << solve() << endl;
-    }
+    TreeNode *root = nullptr;
+    TreeNode *node1 = nullptr;
+    node1 = new TreeNode(9);
+    TreeNode *node2 = nullptr;
+    node2 = new TreeNode(20);
+    root = new TreeNode(-10, node1, node2);
 
+    cout << root->val << endl;
+    cout << root->left->val << endl;
+    cout << root->right->val << endl;
+
+    TreeNode *node3 = new TreeNode(15);
+    TreeNode *node4 = new TreeNode(7);
+
+    node2->left = node3;
+    node2->right = node4;
+
+    cout << node2->left->val << endl;
+    cout << node2->right->val << endl;
+    
+    cout << maxPathSum(root) << endl;
     return 0;
 
 }

@@ -113,9 +113,18 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll n; 
+    cin >> n;
+
+    if(n > 24)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+
+
+
 }
 
 
@@ -126,7 +135,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve();
     }
 
     return 0;

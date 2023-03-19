@@ -113,22 +113,34 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+int isItPossible(string str) 
 {
-    return 0;
+
+    int len = str.size();
+
+    if(len%2 != 0)
+    {
+        return 0;
+    }
+
+    for(int i=0; i<len/2; i++)
+    {
+        if(str[i] != str[i+(len/2)])
+        {
+            return 0;
+        }
+    }
+
+    return 1;
 }
 
 
 int main()
 {
     fastio;
-    ll t; cin >> t;
+    string str = "abc";
 
-    for(int i=1; i<=t; ++i)
-    {
-        cout << solve() << endl;
-    }
-
+    cout << isItPossible(str) << endl;
     return 0;
 
 }

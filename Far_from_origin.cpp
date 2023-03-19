@@ -113,9 +113,25 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+void solve() 
 {
-    return 0;
+    ll x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+
+    long double alex_dist = sqrt(x1*x1 + y1*y1);
+    long double bob_dist = sqrt(x2*x2 + y2*y2);
+
+    if(alex_dist == bob_dist)
+    {
+        cout << "EQUAL" << endl;
+    }
+    else if(alex_dist > bob_dist)
+    {
+       cout << "ALEX" << endl; 
+    }
+    else
+    {
+       cout << "BOB" << endl; 
+    }
 }
 
 
@@ -126,7 +142,7 @@ int main()
 
     for(int i=1; i<=t; ++i)
     {
-        cout << solve() << endl;
+        solve() ;
     }
 
     return 0;

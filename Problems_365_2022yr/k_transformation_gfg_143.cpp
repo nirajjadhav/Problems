@@ -113,21 +113,63 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
-{
-    return 0;
+vector<int> k_Transformation(int n, int m, int k, vector<vector<int> > grid, int q, vector<vector<int> > queries) {
+    vector<int> res;
+
+    for(int i=0; i<queries.size(); i++)
+    {
+        
+        int t = queries[i][0], val = queries[i][1], lx = queries[i][2], ly = queries[i][3], rx = queries[i][4], ry = queries[i][5];
+
+        int count = 0;
+
+        for(int m=lx; m<=rx; m++)
+        {
+            for(int n=ly; n<=ry; n++)
+            {
+                int ele;
+                if(t != 0)
+                {
+                    ele = (grid[m][n] + t) % k;
+                
+                    if(ele == val)
+                    {
+                        count ++;
+                    }
+                }
+                else
+                {
+                    if(grid[m][n] == val)
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+
+        res.push_back(count);
+        
+    }
+    return res;
 }
 
 
 int main()
 {
     fastio;
-    ll t; cin >> t;
+    int n = 3, m = 3, k = 4, q = 2;
 
-    for(int i=1; i<=t; ++i)
+    vector<vector<int>> grid = {{0 , 1, 1}, {1, 2, 3}, {0, 2, 1}};
+    vector<vector<int>> queries = {{0, 1, 0, 0, 2, 2}, {2, 2, 1, 1, 2, 2}};
+    vector<int> res;
+
+    res = k_Transformation(n , m, k, grid, q, queries);
+
+    for(auto e: res)
     {
-        cout << solve() << endl;
+        cout << e << " ";
     }
+    cout << "\n";
 
     return 0;
 

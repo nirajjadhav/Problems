@@ -115,7 +115,25 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n, x; cin >> n >> x;
+
+    vl fresh(n);
+    forin(fresh, n);
+
+    vl cost(n);
+    forin(cost, n);
+
+    ll sum = 0;
+    for(int i=0; i<n; i++)
+    {
+        if(fresh[i] >= x)
+        {
+            sum += cost[i];
+        }
+    }
+
+    return sum;
+
 }
 
 

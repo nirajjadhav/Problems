@@ -113,21 +113,120 @@ const ll mod1=1e9+7;
 const ll mod2=998244353;
 
 
-ll solve() 
+int lives = 5, limit = 4;
+
+
+
+//Api return true if correct guess or false
+bool guess(char c, string &word, vector<char> &tried) 
 {
-    return 0;
+    for(int i = 0; i< word.size(); i++)
+    {
+        if(c == word[i] && tried[i] == '_')
+        {
+            tried[i] = c;
+            return true;
+        }
+        
+    }
+    return false;
 }
 
+//utility function to print
+void print(bool isCorrect, int nol, vector<char> wrong, vector<char> tried)
+{
+    cout << "No. of lives left : " << nol << endl;
+    cout << "wrong guessed letters : ";
+    for(int i = 0; i < wrong.size(); i++)
+    {
+        cout << wrong[i] << " ";
+    }
+    cout << endl;
+
+    if(isCorrect)
+    {
+        cout << "word : ";
+        for(int i = 0; i < tried.size(); i++)
+        {
+            cout << tried[i] << " ";
+        }
+        cout << endl;
+    }
+
+}
 
 int main()
 {
-    fastio;
-    ll t; cin >> t;
+    //fastio;
+    cout << "Welcome to word game" << endl;
+    // number of lives and limit of guesses
+    //int lives = 8, limit = 4;
 
-    for(int i=1; i<=t; ++i)
+    //word to be guessed
+    string word = "MANGO";
+
+    //hint to be displayed
+    string hint = "FRUIT";
+
+    vector<char> tried;
+    vector<char> wrong;
+
+    cout << "Word to be guessed : " << word << endl;
+    cout << "No. of lives left : " << lives << endl;
+
+    for(int i = 0; i < word.size(); i++)
     {
-        cout << solve() << endl;
+        tried.push_back('_');
     }
+    cout << "word : ";
+    for(int i = 0; i < word.size(); i++)
+    {
+        cout << tried[i] << " ";
+    }
+
+    cout << endl;
+    int guessCount = 0;
+    while(lives > 0)
+    {
+
+        cout << "Guess the letter : " << endl;
+        guessCount++;
+
+        char c;
+
+        cin >> c;
+        int index;
+        if(guess(c, word, tried))
+        {
+            print(true, lives, wrong, tried);
+
+            auto it = find(tried.begin(), tried.end(), '_');
+            if(it == tried.end())
+            {
+                cout << "CONGRATULATIONS !!" << endl;
+                return 0;
+            }
+        }
+        else
+        {
+            limit--;
+
+            if(guessCount >= limit)
+            {
+                cout << hint << endl;
+            }
+
+            lives--;
+            wrong.push_back(c);
+            print(false, lives, wrong, tried);
+        }
+
+    }
+
+
+    cout << "you are out of lives!!" << endl;
+    cout << "Correct Word : " << word << endl;
+
 
     return 0;
 

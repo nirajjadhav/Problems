@@ -115,7 +115,28 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n; 
+    cin >> n;
+
+    vl arr(n);
+    unordered_map<ll, ll> unique;
+    for(int i=0; i<n; i++)
+    {
+        cin >> arr[i];
+        unique[arr[i]]++;
+    }
+
+    ll maxi = LLONG_MIN;
+
+    for(auto x: unique)
+    {
+        maxi = max(maxi, x.second);
+    }
+
+    
+    return (n - maxi);
+
+
 }
 
 

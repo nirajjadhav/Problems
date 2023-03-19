@@ -115,7 +115,45 @@ const ll mod2=998244353;
 
 ll solve() 
 {
-    return 0;
+    ll n; cin >> n;
+
+    string str; cin >> str;
+
+    ll idx = -1, diff = INT_MAX;
+
+    for(int i=0; i<str.size(); i++)
+    {
+        if(str[i] == '1')
+        {
+            if(idx == -1)
+            {
+                idx = i;
+                continue;
+            }
+
+            if((i-idx) == 1)
+            {
+                diff = 1;
+                break;
+            }
+            diff = (i - idx)-1;
+
+            if(diff %2 == 0)
+            {
+                diff = 1;
+                break;
+            }
+            else
+            {
+                diff = 2;
+            }
+
+            idx = i;
+        }
+    }
+
+    return diff;
+
 }
 
 
